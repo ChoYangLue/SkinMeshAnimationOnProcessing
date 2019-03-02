@@ -36,15 +36,6 @@ int ibofLoc1;
 
 int timeLoc;
 
-//loadGLTF model;
-
-/*
-[ XX(1.0 - cosθ) + cosθ, XY(1.0 - cosθ) - Zsinθ, XZ(1.0 - cosθ) + Ysinθ, 0.0 ]
-[ XY(1.0 - cosθ) + Zsinθ, YY(1.0 - cosθ) + cosθ, YZ(1.0 - cosθ) - Xsinθ, 0.0 ]
-[ XZ(1.0 - cosθ) + Ysinθ, ZY(1.0 - cosθ) + Xsinθ, ZZ(1.0 - cosθ) + cosθ, 0.0 ]
-[ 0.0, 0.0, 0.0, 1.0 ]
-*/
-
 void setup() {
   size(800, 600, P3D);
 
@@ -101,20 +92,10 @@ void setup() {
   
   createGeometry();
   //updateGeometry();
-  
-  //model = new loadGLTF("j7-gn.gltf");
 }
 
 void draw() {
   background(200);
-
-  // Geometry transformations from Processing are automatically passed to the shader
-  // as long as the uniforms in the shader have the right names.
-  //translate(width/2, height/2, -100);
-  //rotateX(a);
-  //rotateY(a*2);  
-  
-  
   PGL pgl = beginPGL(); 
 
   shader.bind();
@@ -165,9 +146,6 @@ void draw() {
   shader.unbind();
 
   endPGL();
-  
-  
-  //model.draw();
 
   a += 0.01;
 }
@@ -340,10 +318,6 @@ void createGeometry() {
   boneWeightBuffer.rewind();
   boneWeightBuffer.put(boneweight);
   boneWeightBuffer.rewind();
-  
-}
-
-void updateGeometry() {
   
 }
 
